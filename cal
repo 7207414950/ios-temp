@@ -1,0 +1,175 @@
+import UIKit
+
+class ViewController: UIViewController {
+    
+    var operand1:Double = -1.1
+    var _operand:String = ""
+    var operand2:Double = -1.1
+
+    @IBOutlet weak var display: UILabel!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+
+    @IBAction func acoutlet(_ sender: UIButton) {
+        display.text = ""
+        operand1 = -1.11
+        operand2 = -1.11
+        
+    }
+    
+    @IBAction func coutlet(_ sender: UIButton) {
+        var c = display.text!
+        if(!c.isEmpty){
+            c.removeLast()
+        }
+        else if(c.isEmpty){
+            operand1 = -1.11
+            operand2 = -1.11
+        }
+        display.text = c
+    }
+    
+    
+  
+    @IBAction func zerooutlet(_ sender: UIButton) {
+        display.text = display.text! + "0"
+    }
+    
+    @IBAction func oneoutlet(_ sender: UIButton) {
+        display.text = display.text! + "1"
+    }
+    
+    
+    @IBAction func twooutlet(_ sender: UIButton) {
+        display.text = display.text! + "2"
+    }
+    
+    
+    @IBAction func threeoutlet(_ sender: UIButton) {
+        display.text = display.text! + "3"
+    }
+    
+    @IBAction func fouroutlet(_ sender: UIButton) {
+        display.text = display.text! + "4"
+    }
+    
+    @IBAction func fiveoutlet(_ sender: UIButton) {
+        display.text = display.text! + "5"
+    }
+ 
+    @IBAction func sixoutlet(_ sender: UIButton) {
+        display.text = display.text! + "6"
+    }
+    
+    @IBAction func sevenoutlet(_ sender: UIButton) {
+        display.text = display.text! + "7"
+    }
+    
+    @IBAction func eightoutlet(_ sender: UIButton) {
+        display.text = display.text! + "8"
+    }
+    
+    @IBAction func nineoutlet(_ sender: UIButton) {
+        display.text = display
+            .text! + "9"
+    }
+    
+    @IBAction func pmoutlet(_ sender: UIButton) {
+        if _operand == "-"{
+            _operand = "+"
+        }
+        else if _operand == "+"{
+            _operand = "-"
+        }
+    }
+    
+    @IBAction func doutlet(_ sender: UIButton) {
+        operand1 = Double(display.text!) ?? 0.0
+        display.text = display.text! + "÷"
+        _operand = "÷"
+        display.text = ""
+    }
+    
+    @IBAction func muloutlet(_ sender: UIButton) {
+        operand1 = Double(display.text!) ?? 0.0
+        display.text = display.text! + "x"
+        _operand = "x"
+        display.text = ""
+    }
+    
+    @IBAction func minoutlet(_ sender: UIButton) {
+        operand1 = Double(display.text!) ?? 0.0
+        display.text = display.text! + "-"
+        _operand = "-"
+        display.text = ""
+    }
+    
+    
+    @IBAction func plusoutlet(_ sender: UIButton) {
+        operand1 = Double(display.text!) ?? 0.0
+        display.text = display.text! + "+"
+        _operand = "+"
+        display.text = ""
+    }
+    
+    @IBAction func equaloutlet(_ sender: UIButton) {
+        operand2 = Double(display.text!) ?? 0.0
+                if _operand.contains("+"){
+                    var res = operand1+operand2
+                    if(res.truncatingRemainder(dividingBy: 1)==0){
+                        display.text = "\(Int(res))"
+                    }
+                    else {display.text = "\(res)"}
+                }
+                else if _operand.contains("-"){
+                    var res = operand1-operand2
+                    if(res.truncatingRemainder(dividingBy: 1)==0){
+                        display.text = "\(Int(res))"
+                    }
+                    else{display.text = "\(res)"}
+                }
+                if _operand.contains("x"){
+                    var res = operand1*operand2
+                    if(res.truncatingRemainder(dividingBy: 1)==0){
+                        display.text = "\(Int(res))"
+                    }
+                    else {display.text = "\(res)"}
+                }
+                if _operand.contains("÷"){
+                    var res = operand1/operand2
+                    if(operand2 == 0){
+                        display.text = "Not a Number"
+                    }
+                    else if(res.truncatingRemainder(dividingBy: 1)==0){
+                        display.text = "\(Int(res))"
+                    }
+                    else {display.text = "\(round(res * 100000) / 100000.0)"}
+                }
+                if _operand.contains("%"){
+                    var res = operand1.truncatingRemainder(dividingBy : operand2)
+                    if(res.truncatingRemainder(dividingBy: 1)==0){
+                        display.text = "\(Int(res))"
+                    }
+                    else {display.text = "\(round(res * 100000) / 100000.0)"}
+                }}
+    
+    
+    @IBAction func peroutlet(_ sender: UIButton) {
+        operand1 = Double(display.text!) ?? 0.0
+        display.text = "%"
+        _operand = "%"
+        display.text = ""
+    }
+    
+    
+    @IBAction func dotoutlet(_ sender: UIButton) {
+        display.text = display.text!+"."
+    }
+    
+}
+
+

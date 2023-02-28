@@ -1,0 +1,22 @@
+import UIKit
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var DisplayImage: UIImageView!
+    
+    
+    @IBOutlet weak var TextDisplay: UILabel!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+
+
+    @IBAction func Click(_ sender: UIButton) {
+        TextDisplay.text! = "Captain of 2011 cricket world cup!"
+        DisplayImage.image = UIImage(named: "Dhoni")
+    }
+}
+

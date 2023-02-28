@@ -1,0 +1,52 @@
+import UIKit
+
+class ViewController: UIViewController {
+    
+    //Creating an outlet for firstName.
+    @IBOutlet weak var firstNameOutlet: UITextField!
+    //Creating an outlet for lastName.
+    @IBOutlet weak var lastNameOutlet: UITextField!
+    //Creating an outlet for year of birth.
+    @IBOutlet weak var yearOutlet: UITextField!
+    //Creating an outlet for fullName to display the output.
+    @IBOutlet weak var fullNameLabel: UILabel!
+    //Creating an outlet for initials to display the output.
+    @IBOutlet weak var initialsLabel: UILabel!
+    //Creating an outlet for age to display the output.
+    @IBOutlet weak var ageLabel: UILabel!
+    //Creating an outlet for display to text heading as "Details".
+    @IBOutlet weak var DisplayLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+
+    @IBAction func SubmitBTN(_ sender: UIButton) {
+        //Creating a variables for firstName,lastName,Year.
+        var fn = firstNameOutlet.text!
+        var ln = lastNameOutlet.text!
+        var age = yearOutlet.text!
+        var yr = Calendar.current
+        var date = Date()
+        var cy = yr.component(.year, from: date)
+        var a = Int(cy) - Int(age)!
+        //Output details to display while submit is clicked.
+        DisplayLabel.text! = "Details"
+        fullNameLabel.text! = "FullName: \(fn) \(ln)"
+        initialsLabel.text! = "Initials: \(ln.first!) \(fn.first!)"
+        ageLabel.text! = "Age: \(a)"
+    }
+    
+    @IBAction func ResetBTN(_ sender: UIButton) {
+        //creating an empty text to display while reset is clicked.
+        firstNameOutlet.text! = " "
+        lastNameOutlet.text! = " "
+        yearOutlet.text! = " "
+        DisplayLabel.text! = " "
+        fullNameLabel.text! = " "
+        initialsLabel.text! = " "
+        ageLabel.text! = " "
+    }
+}
+

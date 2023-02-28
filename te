@@ -1,0 +1,62 @@
+//
+//  ViewController.swift
+//  Thakellapati_SurgeryCostApp
+//
+//  Created by Thakellapati,Sai Charan on 2/28/23.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var display: UILabel!
+    
+    
+    @IBOutlet weak var Patientname: UITextField!
+    
+    
+    @IBOutlet weak var Entersurgerytype: UITextField!
+    
+    
+    @IBOutlet weak var Entercost: UITextField!
+    
+    
+    @IBOutlet weak var image: UIImageView!
+    
+    @IBOutlet weak var outputdisplay: UILabel!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+
+    @IBAction func button(_ sender: UIButton) {
+        
+        var patname = Patientname.text!
+        var Display = display.text!
+        var entsug = Entersurgerytype.text!
+        var entcost = Entercost.text!
+        var out = outputdisplay.text!
+        let Tax = (11.75,13.5,6.25)
+        var hi = (500,750,350)
+        var totalcost : Double = Double(Entercost(1 + Tax)) - Double(hi)
+        if (patname == EMPTY || entsug == EMPTY || entcost == EMPTY){
+        
+            image.image = UIImage(named: "noResults")
+            outputdisplay.text! = "Enter all the details"
+        }
+        if(entsug.lowercased() == "heart"){
+            
+            image.image = UIImage(named: "Heart")
+            outputdisplay.text! = "\(patname): \r Total cost for Heart surgery is \(totalcost)"
+        }
+        else if(entsug.lowercased() == "brain"){
+            image.image = UIImage(named: "Brain")
+            outputdisplay.text! = "Total cost for Brain surgery is \totalcost"
+        }else if(entsug.lowercased() == "knee replacement"){
+            image.image = UIImage(named: "Knee")
+            outputdisplay.text! = "Total cost for Knee replacement surgery is \totalcost"
+        }
+        
+    
+}
+}

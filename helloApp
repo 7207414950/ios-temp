@@ -1,0 +1,28 @@
+import UIKit
+
+class ViewController: UIViewController {
+    
+    @IBOutlet weak var NameInputOutlet: UITextField!
+
+    
+    @IBOutlet weak var DisplayLableOutlet: UILabel!
+    
+    
+    @IBOutlet weak var ImageOutlet: UIImageView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+
+    
+    @IBAction func Click(_ sender: UIButton) {
+        //Read the input & store it in a variable.
+        var input = NameInputOutlet.text!
+        
+        //Perform String Interpolaction "Hello,name!" & assign it to display lable
+        DisplayLableOutlet.text = "Hello, \(input)!"
+    }
+    
+}
+
